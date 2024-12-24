@@ -1,5 +1,5 @@
 FROM ruby:3.2.2
-WORKDIR /server/
+WORKDIR /app/
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 COPY . .
