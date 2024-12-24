@@ -5,6 +5,5 @@
 ## 実行方法
 
 ```shell
-source .env
 docker compose up --build
 ```

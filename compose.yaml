@@ -5,5 +5,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
-    environment:
-      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+    volumes:
+      - ./server/:/server/
+      - bundle:/usr/local/bundle
+
+volumes:
+  bundle:
