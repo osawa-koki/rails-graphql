@@ -25,5 +25,17 @@ module Types
     def hello
       "Hello, GraphQL!"
     end
+
+    field :items, [Types::ItemType], null: false, description: "Fetches all items"
+    def items
+      Item.all
+    end
+
+    field :item, Types::ItemType, null: true, description: "Fetch an item by ID" do
+      argument :id, ID, required: true
+    end
+    def item(id:)
+      Item.find(id)
+    end
   end
 end
