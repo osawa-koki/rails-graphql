@@ -63,5 +63,17 @@ mutation {
     errors
   }
 }
+
+# アイテムを削除
+mutation {
+  deleteItem(input: {
+    id: 1
+  }) {
+    item {
+      id
+    }
+    errors
+  }
+}
 ```
 
