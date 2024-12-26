@@ -47,5 +47,21 @@ mutation {
     errors
   }
 }
+
+# アイテムを更新
+mutation {
+  updateItem(input: {
+    id: 1
+    name: "Updated 🎉🎉🎉"
+    price: 12345
+  }) {
+    item {
+      id
+      name
+      price
+    }
+    errors
+  }
+}
 ```
 
