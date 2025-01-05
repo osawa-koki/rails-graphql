@@ -2,6 +2,8 @@
 
 📕📕📕 Ruby on RailsでGraphQLを使うためのサンプルプロジェクト！  
 
+![成果物](./fruit.gif)  
+
 ## 実行方法
 
 ```shell
