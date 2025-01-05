@@ -6,6 +6,7 @@
 
 ```shell
 docker compose up --build -d
+docker compose run --rm app bundle exec rails db:migrate
 ```
 
 ## クエリの実行
@@ -75,4 +76,44 @@ mutation {
     errors
   }
 }
+```
+
+## おおさわメモ (手順)
+
+### 1. Railsのプロジェクトを作成
+
+```shell
+bundle exec rails new . --api
+```
+
+その後、生成されたDockerファイル書き換える。  
+※ 当プロジェクトのDockerfileを参照。  
+※ 開発用に動かすため。  
+
+### 2. 必要なGemをインストール
+
+```Gemfile
+gem 'graphql'
+gem "propshaft", "~> 1.1" # APIモードでは必須
+```
+
+```shell
+bundle install
+bundle exec rails generate graphql:install
+```
+
+### 3. GraphiQLをインストール
+
+```shell
+group :development, :test do
+  gem 'graphiql-rails'
+end
+```
+
+`./config/routes.rb`に以下の行を追加。  
+
+```ruby
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
 ```
