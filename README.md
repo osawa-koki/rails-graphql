@@ -83,7 +83,7 @@ mutation {
 ### 1. Railsのプロジェクトを作成
 
 ```shell
-burails new . --api
+bundle exec rails new . --api
 ```
 
 その後、生成されたDockerファイル書き換える。  
